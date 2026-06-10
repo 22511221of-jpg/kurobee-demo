@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>炭火と肴 くろべえ｜調布の居酒屋 - 炭火の香り、懐かしい夜。</title>
+<meta name="description" content="炭火と肴 くろべえは、東京都調布市にある和モダンな大人の居酒屋。備長炭でじっくり焼き上げる焼き物と、厳選した日本酒・ドリンクで、懐かしくも上質な夜のひとときをお過ごしください。">
+<meta name="robots" content="index, follow">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="炭火と肴 くろべえ｜調布の居酒屋">
+<meta property="og:description" content="炭火の香り、懐かしい夜。調布の和モダン居酒屋「炭火と肴 くろべえ」。">
+<meta property="og:image" content="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1200&q=80&auto=format&fit=crop">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --color-bg:#15120F;
+    --color-bg-alt:#1D1814;
+    --color-card:#262019;
+    --color-gold:#CBA968;
+    --color-gold-soft:#E4D2A7;
+    --color-text:#F1E9DD;
+    --color-text-soft:#9C8F83;
+    --color-border:#3A322B;
+    --font-en:'Cormorant Garamond', serif;
+    --font-jp:'Noto Serif JP', serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:76px;}
+  body{
+    font-family:var(--font-jp);
+    color:var(--color-text);
+    background:var(--color-bg);
+    line-height:1.9;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  button{font-family:inherit;}
+  .en{font-family:var(--font-en);}
+
+  /* ===== Fade-in on scroll ===== */
+  .fade-in{
+    opacity:0;
+    transform:translateY(32px);
+    transition:opacity 0.9s cubic-bezier(.25,.1,.25,1), transform 0.9s cubic-bezier(.25,.1,.25,1);
+  }
+  .fade-in.visible{opacity:1;transform:translateY(0);}
+  .dedication-grid .fade-in:nth-child(2),.menu-grid .fade-in:nth-child(2),.gallery-grid .fade-in:nth-child(2){transition-delay:.12s;}
+  .dedication-grid .fade-in:nth-child(3),.menu-grid .fade-in:nth-child(3),.gallery-grid .fade-in:nth-child(3){transition-delay:.24s;}
+  .menu-grid .fade-in:nth-child(4){transition-delay:.36s;}
+  .menu-grid .fade-in:nth-child(5){transition-delay:.48s;}
+
+  /* ===== Header / Nav ===== */
+  .header{
+    position:fixed;top:0;left:0;width:100%;z-index:1000;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:26px 6%;
+    transition:background .4s ease, padding .4s ease, border-color .4s ease;
+    background:transparent;
+    border-bottom:1px solid transparent;
+  }
+  .header.scrolled{
+    background:rgba(21,18,15,.92);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--color-border);
+    padding:16px 6%;
+  }
+  .logo{
+    font-family:var(--font-jp);
+    font-size:1.15rem;font-weight:600;letter-spacing:.14em;
+    color:var(--color-gold-soft);
+  }
+  .nav-links{display:flex;gap:2.4rem;align-items:center;}
+  .nav-links a{
+    font-family:var(--font-en);font-size:.92rem;font-weight:500;
+    letter-spacing:.18em;color:var(--color-text);position:relative;padding-bottom:4px;
+    transition:color .3s ease;
+  }
+  .nav-links a::after{
+    content:'';position:absolute;left:0;bottom:0;width:0;height:1px;
+    background:var(--color-gold);transition:width .35s ease;
+  }
+  .nav-links a:hover{color:var(--color-gold-soft);}
+  .nav-links a:hover::after{width:100%;}
+
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1100;padding:6px;}
+  .hamburger span{display:block;width:26px;height:2px;background:var(--color-gold-soft);transition:all .35s ease;}
+  .hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.active span:nth-child(2){opacity:0;}
+  .hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  /* ===== Hero ===== */
+  .hero{
+    height:100vh;min-height:600px;position:relative;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    background:url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1920&q=80&auto=format&fit=crop') center/cover no-repeat;
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(10,8,6,.55) 0%, rgba(10,8,6,.65) 55%, rgba(10,8,6,.85) 100%);
+  }
+  .hero-content{position:relative;z-index:2;color:var(--color-text);padding:0 24px;}
+  .hero-eyebrow{
+    font-family:var(--font-en);font-size:.8rem;letter-spacing:.5em;
+    text-transform:uppercase;color:var(--color-gold);margin-bottom:1.6rem;
+  }
+  .hero-title-jp{
+    font-size:clamp(1.9rem, 8vw, 3.6rem);font-weight:600;
+    letter-spacing:.12em;margin-bottom:1.6rem;color:var(--color-text);
+  }
+  .hero-divider{width:60px;height:1px;background:var(--color-gold);margin:0 auto 1.6rem;}
+  .hero-catch{
+    font-size:clamp(1.05rem, 3.4vw, 1.5rem);font-weight:500;
+    letter-spacing:.16em;margin-bottom:2.4rem;color:var(--color-gold-soft);
+  }
+  .hero-sub{
+    font-family:var(--font-en);font-size:.85rem;letter-spacing:.5em;
+    text-transform:uppercase;color:var(--color-text-soft);
+  }
+  .scroll-indicator{
+    position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+    z-index:2;color:var(--color-gold);display:flex;flex-direction:column;align-items:center;gap:8px;
+    animation:bounce 2.6s ease-in-out infinite;
+  }
+  .scroll-indicator span{
+    font-family:var(--font-en);font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;opacity:.85;
+  }
+  .scroll-indicator .line{width:1px;height:42px;background:rgba(203,169,104,.5);}
+  @keyframes bounce{
+    0%,100%{transform:translate(-50%,0);}
+    50%{transform:translate(-50%,10px);}
+  }
+
+  /* ===== Section common ===== */
+  .section{padding:110px 6%;max-width:1240px;margin:0 auto;position:relative;}
+  .section-alt{background:var(--color-bg-alt);}
+  .section-alt-inner{padding:110px 6%;max-width:1240px;margin:0 auto;position:relative;}
+  .section-head{text-align:center;margin-bottom:4rem;position:relative;z-index:1;}
+  .section-eyebrow{
+    font-family:var(--font-en);font-size:.8rem;letter-spacing:.5em;
+    text-transform:uppercase;color:var(--color-gold);margin-bottom:.8rem;
+  }
+  .section-title{
+    font-family:var(--font-en);font-weight:500;
+    font-size:clamp(2.2rem, 6vw, 3.2rem);letter-spacing:.18em;color:var(--color-text);
+  }
+  .section-title-jp{
+    margin-top:.6rem;font-size:.95rem;letter-spacing:.4em;color:var(--color-text-soft);
+  }
+
+  /* decorative blobs */
+  .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.12;z-index:0;pointer-events:none;background:var(--color-gold);}
+
+  /* ===== Dedication (Kodawari) ===== */
+  .dedication-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2rem;position:relative;z-index:1;}
+  .dedication-card{
+    background:var(--color-card);border:1px solid var(--color-border);border-radius:6px;overflow:hidden;
+    transition:transform .4s ease, border-color .4s ease;
+  }
+  .dedication-card:hover{transform:translateY(-8px);border-color:var(--color-gold);}
+  .dedication-img{aspect-ratio:4/3;overflow:hidden;}
+  .dedication-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.9);transition:transform .6s ease;}
+  .dedication-card:hover .dedication-img img{transform:scale(1.08);}
+  .dedication-body{padding:2rem 1.8rem;}
+  .dedication-num{font-family:var(--font-en);font-size:1.1rem;color:var(--color-gold);letter-spacing:.2em;display:block;margin-bottom:.8rem;}
+  .dedication-title{font-size:1.25rem;font-weight:600;}
+  .dedication-title .en{
+    display:block;font-family:var(--font-en);font-size:.78rem;letter-spacing:.2em;
+    color:var(--color-text-soft);text-transform:uppercase;margin-top:.35rem;font-weight:500;
+  }
+  .dedication-text{margin-top:1rem;font-size:.9rem;color:var(--color-text-soft);line-height:1.95;}
+
+  /* ===== Menu ===== */
+  .menu-tabs{display:flex;justify-content:center;gap:1rem;margin-bottom:3.5rem;flex-wrap:wrap;position:relative;z-index:1;}
+  .tab-btn{
+    font-family:var(--font-en);letter-spacing:.28em;font-size:.85rem;font-weight:600;
+    padding:13px 38px;border:1px solid var(--color-gold);border-radius:4px;
+    background:transparent;color:var(--color-gold-soft);cursor:pointer;
+    transition:background .3s ease, color .3s ease;
+  }
+  .tab-btn.active,.tab-btn:hover{background:var(--color-gold);color:#15120F;}
+
+  .menu-content{display:none;}
+  .menu-content.active{display:block;animation:fadeInTab .6s ease;}
+  @keyframes fadeInTab{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+  .menu-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(230px,1fr));gap:2.2rem;}
+  .menu-item{
+    background:var(--color-card);border:1px solid var(--color-border);border-radius:6px;overflow:hidden;
+    transition:transform .35s ease, border-color .35s ease;
+  }
+  .menu-item:hover{transform:translateY(-8px);border-color:var(--color-gold);}
+  .menu-item-img{aspect-ratio:4/3;overflow:hidden;}
+  .menu-item-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.92);transition:transform .6s ease;}
+  .menu-item:hover .menu-item-img img{transform:scale(1.08);}
+  .menu-item-info{padding:1.3rem 1.5rem 1.5rem;}
+  .menu-item-info h4{font-size:1.05rem;font-weight:600;letter-spacing:.04em;color:var(--color-text);}
+  .menu-item-info .item-en{
+    display:block;font-family:var(--font-en);font-size:.78rem;letter-spacing:.14em;
+    color:var(--color-text-soft);margin-top:.25rem;text-transform:uppercase;
+  }
+  .menu-item-info .price{
+    display:block;margin-top:.7rem;font-family:var(--font-en);font-size:1.3rem;
+    font-weight:600;letter-spacing:.05em;color:var(--color-gold);
+  }
+
+  /* ===== Gallery ===== */
+  .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;position:relative;z-index:1;}
+  .gallery-item{aspect-ratio:1/1;overflow:hidden;border-radius:6px;border:1px solid var(--color-border);}
+  .gallery-item img{width:100%;height:100%;object-fit:cover;filter:brightness(.92);transition:transform .7s ease;}
+  .gallery-item:hover img{transform:scale(1.12);}
+
+  /* ===== Access ===== */
+  .access-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:3.5rem;position:relative;z-index:1;}
+  .access-map{border-radius:6px;overflow:hidden;border:1px solid var(--color-border);min-height:380px;}
+  .access-map iframe{
+    width:100%;height:100%;min-height:380px;border:0;display:block;
+    filter:grayscale(35%) invert(90%) contrast(85%) brightness(95%);
+  }
+  .access-info{
+    background:var(--color-card);border:1px solid var(--color-border);border-radius:6px;padding:2.6rem 2.2rem;
+  }
+  .access-info dl{display:grid;grid-template-columns:auto 1fr;gap:1.2rem 1.4rem;}
+  .access-info dt{
+    font-family:var(--font-en);font-size:.78rem;letter-spacing:.2em;
+    color:var(--color-gold);font-weight:600;white-space:nowrap;padding-top:.15rem;
+  }
+  .access-info dd{font-size:.95rem;color:var(--color-text);}
+  .access-info dd a{color:var(--color-gold-soft);border-bottom:1px solid var(--color-gold-soft);}
+  .access-info hr{border:none;border-top:1px solid var(--color-border);grid-column:1/-1;margin:.2rem 0;}
+  .access-note{
+    margin-top:1.8rem;padding-top:1.6rem;border-top:1px solid var(--color-border);
+    font-size:.82rem;color:var(--color-text-soft);letter-spacing:.04em;line-height:1.9;
+  }
+
+  /* ===== Reserve ===== */
+  .reserve-box{text-align:center;position:relative;z-index:1;}
+  .reserve-text{margin-bottom:2.4rem;font-size:1rem;color:var(--color-text-soft);letter-spacing:.05em;}
+  .reserve-btn{
+    display:inline-flex;align-items:center;gap:1.1rem;
+    padding:22px 46px;border:1px solid var(--color-gold);border-radius:6px;
+    transition:background .3s ease, color .3s ease;color:var(--color-text);
+  }
+  .reserve-btn:hover{background:var(--color-gold);color:#15120F;}
+  .reserve-btn svg{flex-shrink:0;color:var(--color-gold);transition:color .3s ease;}
+  .reserve-btn:hover svg{color:#15120F;}
+  .reserve-btn-text{display:flex;flex-direction:column;align-items:flex-start;text-align:left;}
+  .reserve-btn-text .en{font-size:.7rem;letter-spacing:.5em;color:var(--color-text-soft);transition:color .3s ease;}
+  .reserve-btn:hover .reserve-btn-text .en{color:#15120F;opacity:.7;}
+  .reserve-number{font-family:var(--font-en);font-size:1.9rem;font-weight:600;letter-spacing:.06em;}
+  .reserve-hours{margin-top:1.8rem;font-size:.85rem;color:var(--color-text-soft);letter-spacing:.05em;}
+  .reserve-note{margin-top:.6rem;font-size:.78rem;color:var(--color-text-soft);opacity:.7;letter-spacing:.04em;}
+
+  /* ===== Footer ===== */
+  .footer{background:#0E0C0A;color:var(--color-text-soft);padding:70px 6% 30px;text-align:center;border-top:1px solid var(--color-border);}
+  .footer-logo{font-family:var(--font-jp);font-size:1.5rem;letter-spacing:.2em;font-weight:600;color:var(--color-gold-soft);margin-bottom:.8rem;}
+  .footer-tagline{font-size:.9rem;letter-spacing:.3em;color:var(--color-text-soft);margin-bottom:2rem;}
+  .footer-social{display:flex;justify-content:center;margin-bottom:2.2rem;}
+  .footer-social a{
+    width:42px;height:42px;border:1px solid var(--color-border);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;color:var(--color-text-soft);
+    transition:background .3s ease, border-color .3s ease, color .3s ease;
+  }
+  .footer-social a:hover{background:var(--color-gold);border-color:var(--color-gold);color:#15120F;}
+  .footer-nav{
+    display:flex;justify-content:center;flex-wrap:wrap;gap:1.8rem;
+    margin-bottom:2.4rem;font-family:var(--font-en);font-size:.8rem;letter-spacing:.2em;
+  }
+  .footer-nav a{color:var(--color-text-soft);transition:color .3s ease;}
+  .footer-nav a:hover{color:var(--color-gold-soft);}
+  .footer-bottom{
+    border-top:1px solid var(--color-border);padding-top:1.8rem;font-size:.75rem;
+    letter-spacing:.05em;color:#6E625A;line-height:1.9;
+  }
+
+  /* ===== Mobile ===== */
+  @media(max-width:860px){
+    .access-grid{grid-template-columns:1fr;gap:2.5rem;}
+    .access-map{min-height:300px;}
+    .access-map iframe{min-height:300px;}
+  }
+
+  @media(max-width:768px){
+    .hamburger{display:flex;}
+    .nav-links{
+      position:fixed;top:0;right:-100%;width:72%;max-width:320px;height:100vh;
+      background:var(--color-bg-alt);flex-direction:column;justify-content:center;
+      align-items:flex-start;gap:2.4rem;padding:0 3rem;
+      transition:right .45s cubic-bezier(.4,0,.2,1);
+      box-shadow:-10px 0 40px rgba(0,0,0,.35);z-index:1050;
+      border-left:1px solid var(--color-border);
+    }
+    .nav-links.active{right:0;}
+    .nav-links a{font-size:1.05rem;}
+    .section,.section-alt-inner{padding:80px 6%;}
+    .dedication-grid{grid-template-columns:1fr;}
+  }
+
+  @media(max-width:540px){
+    .gallery-grid{gap:.6rem;}
+    .access-info{padding:2rem 1.4rem;}
+    .access-info dl{grid-template-columns:1fr;gap:.2rem 0;}
+    .access-info dt{margin-top:1rem;}
+    .access-info dt:first-child{margin-top:0;}
+    .access-info hr{display:none;}
+    .reserve-btn{padding:18px 28px;gap:.8rem;}
+    .reserve-number{font-size:1.5rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Header / Navigation ===== -->
+<header class="header" id="siteHeader">
+  <a href="#hero" class="logo">炭火と肴 くろべえ</a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#hero">HOME</a>
+    <a href="#commitment">COMMITMENT</a>
+    <a href="#menu">MENU</a>
+    <a href="#gallery">GALLERY</a>
+    <a href="#access">ACCESS</a>
+    <a href="#reserve">RESERVE</a>
+  </nav>
+  <div class="hamburger" id="hamburger" aria-label="メニューを開く" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow en">Japanese Izakaya — Chofu, Tokyo</p>
+    <h1 class="hero-title-jp">炭火と肴　くろべえ</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-catch">炭火の香り、懐かしい夜。</p>
+    <p class="hero-sub en">Kurobee</p>
+  </div>
+  <div class="scroll-indicator">
+    <span class="en">Scroll</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- ===== Commitment (Kodawari) ===== -->
+<section class="section" id="commitment">
+  <div class="blob" style="width:380px;height:380px;top:-80px;right:-120px;"></div>
+  <div class="section-head fade-in">
+    <p class="section-eyebrow en">Dedication</p>
+    <h2 class="section-title en">COMMITMENT</h2>
+    <p class="section-title-jp">こだわり</p>
+  </div>
+  <div class="dedication-grid">
+    <div class="dedication-card fade-in">
+      <div class="dedication-img">
+        <img src="https://images.unsplash.com/photo-1432139509613-5c4255815697?w=700&q=80&auto=format&fit=crop" alt="備長炭でじっくり焼き上げる炭火焼き" loading="lazy">
+      </div>
+      <div class="dedication-body">
+        <span class="dedication-num en">01</span>
+        <h3 class="dedication-title">炭火<span class="en">Charcoal Fire</span></h3>
+        <p class="dedication-text">備長炭でじっくりと焼き上げる、香ばしい炭火焼き。遠赤外線でうまみを閉じ込め、外はパリッと中はジューシーに仕上げます。</p>
+      </div>
+    </div>
+    <div class="dedication-card fade-in">
+      <div class="dedication-img">
+        <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=700&q=80&auto=format&fit=crop" alt="目利きした旬の食材" loading="lazy">
+      </div>
+      <div class="dedication-body">
+        <span class="dedication-num en">02</span>
+        <h3 class="dedication-title">食材<span class="en">Ingredients</span></h3>
+        <p class="dedication-text">市場で目利きした旬の魚介と、契約農家から届く新鮮な野菜。素材本来の味を活かしたシンプルな調理にこだわっています。</p>
+      </div>
+    </div>
+    <div class="dedication-card fade-in">
+      <div class="dedication-img">
+        <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=700&q=80&auto=format&fit=crop" alt="落ち着いた大人の店内" loading="lazy">
+      </div>
+      <div class="dedication-body">
+        <span class="dedication-num en">03</span>
+        <h3 class="dedication-title">雰囲気<span class="en">Atmosphere</span></h3>
+        <p class="dedication-text">暖簾をくぐれば、灯りの落ち着いた大人の空間。一人でも、大切な人とでも。懐かしくも新しい、くろべえだけの夜をお過ごしください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Menu ===== -->
+<section class="section-alt" id="menu">
+  <div class="section-alt-inner">
+    <div class="blob" style="width:420px;height:420px;bottom:-140px;left:-140px;"></div>
+    <div class="section-head fade-in">
+      <p class="section-eyebrow en">Menu</p>
+      <h2 class="section-title en">MENU</h2>
+      <p class="section-title-jp">メニュー</p>
+    </div>
+
+    <div class="menu-tabs fade-in">
+      <button class="tab-btn active" data-tab="otsumami">おつまみ</button>
+      <button class="tab-btn" data-tab="yakimono">焼き物</button>
+      <button class="tab-btn" data-tab="drink">ドリンク</button>
+    </div>
+
+    <!-- おつまみ -->
+    <div class="menu-content active" id="otsumami">
+      <div class="menu-grid">
+        <div class="menu-item fade-in">
+          <div class="menu-item-img"><img src="https://images.unsplash.com/photo-1582450871972-ab5ca641643d?w=600&q=80&auto=format&fit=crop" alt="だし巻き卵" loading="lazy"></div>
+          <div class="menu-item-info">
+            <h4>だし巻き卵<span class="item-en en">Dashimaki Tamago</span></h4>
+            <span class="price en">¥480</span>
+          </div>
+        </div>
+        <div class="menu-item fade-in">
+          <div class="menu-item-img"><img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=600&q=80&auto=format&fit=crop" alt="クリームチーズ豆腐" loading="lazy"></div>
+          <div class="menu-item-info">
+            <h4>クリームチーズ豆腐<span class="item-en en">Cream Cheese Tofu</span></h4>
+            <span class="price en">¥520</span>
+          </div>
+        </div>
+        <div class="menu-item fade-in">
+          <div class="menu-item-img"><img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&q=80&auto=format&fit=crop" alt="枝豆" loading="lazy"></div>
+          <div class="menu-item-info">
+            <h4>枝豆<span class="item-en en">Edamame</span></h4>
+            <span class="price en">¥380</span>
+          </div>
+        </div>
+        <div class="menu-item fade-in">
+          <div class="menu-item-img"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80&auto=format&fit=crop" alt="板わさ" loading="lazy"></div>
+          <div class="menu-item-info">
+            <h4>板わさ<span class="item-en en">Itawasa</span></h4>
+            <span class="price en">¥480</span>
+          </div>
+        </div>
+        <div class="menu-item fade-in">
+          <div class="menu-item-img"><img src="https://images.unsplash.com/photo-1623341214825-9f4f963727da?w=600&q=80&auto=format&fit=crop" alt="ポテトサラダ" loading="lazy"></div>
+          <div class="menu-item-info">
+            <h4>ポテトサラダ<span class="item-en en">Potato Salad</span></h4>
+            <span class="price en">¥420</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 焼き物 -->
+    <div class="menu-content" id="yakimono">
+      <div class="menu-grid">
+        <div class="menu-item fade-in">
+          <div class="menu-item-img"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80&auto=format&fit=crop" alt="牛タン塩焼き" loading="lazy"></div>
+          <div class="menu-item-info">
+            <h4>牛タン塩焼き<span class="item-en en">Grilled Beef Tongue</span></h4>
+            <span class="price en">¥980</span>
+          </div>
+        </div>
+        <div class="menu-item fade-in">
+          <div class="menu-item-img"><img src="https://images.unsplash.com/photo-1535007813616-79dc02ba4021?w=600&q=80&auto=format&fit=crop" alt="豚バラ串" loading="lazy"></div>
+          <div class="menu-item-info">
+            <h4>豚バラ串<span class="item-en en">Pork Belly Skewer</span></h4>
+            <span class="price en">¥280</span>
+          </div>
+        </div>
+        <div class="menu-item fade-in">
+          <div class="menu-item-img"><img src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&q=80&auto=format&fit=crop" alt="つくね" loading="lazy"></div>
+          <div class="menu-item-info">
+            <h4>つくね<span class="item-en en">Tsukune</span></h4>
+            <span class="price en">¥320</span>
+          </div>
+        </div>
+        <div class="menu-item fade-in">
+          <div class="menu-item-img"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&q=80&auto=format&fit=crop" alt="野菜盛り合わせ" loading="lazy"></div>
+          <div class="menu-item-info">
+            <h4>野菜盛り合わせ<span class="item-en en">Assorted Vegetables</span></h4>
+            <span class="price en">¥580</span>
+          </div>
+        </div>
+        <div class="menu-item fade-in">
+          <div class="menu-item-img"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=80&auto=format&fit=crop" alt="鶏もも炭火焼き" loading="lazy"></div>
+          <div class="menu-item-info">
+            <h4>鶏もも炭火焼き<span class="item-en en">Charcoal Grilled Chicken</span></h4>
+            <span class="price en">¥680</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ドリンク -->
+    <div class="menu-content" id="drink">
+      <div class="menu-grid">
+        <div class="menu-item fade-in">
+          <div class="menu-item-img"><img src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=600&q=80&auto=format&fit=crop" alt="生ビール" loading="lazy"></div>
+          <div class="menu-item-info">
+            <h4>生ビール<span class="item-en en">Draft Beer</span></h4>
+            <span class="price en">¥550</span>
+          </div>
+        </div>
+        <div class="menu-item fade-in">
+          <div class="menu-item-img"><img src="https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?w=600&q=80&auto=format&fit=crop" alt="ハイボール" loading="lazy"></div>
+          <div class="menu-item-info">
+            <h4>ハイボール<span class="item-en en">Highball</span></h4>
+            <span class="price en">¥480</span>
+          </div>
+        </div>
+        <div class="menu-item fade-in">
+          <div class="menu-item-img"><img src="https://images.unsplash.com/photo-1538488881038-e252a119ace7?w=600&q=80&auto=format&fit=crop" alt="日本酒（一合）" loading="lazy"></div>
+          <div class="menu-item-info">
+            <h4>日本酒（一合）<span class="item-en en">Japanese Sake</span></h4>
+            <span class="price en">¥680</span>
+          </div>
+        </div>
+        <div class="menu-item fade-in">
+          <div class="menu-item-img"><img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=600&q=80&auto=format&fit=crop" alt="梅サワー" loading="lazy"></div>
+          <div class="menu-item-info">
+            <h4>梅サワー<span class="item-en en">Plum Sour</span></h4>
+            <span class="price en">¥480</span>
+          </div>
+        </div>
+        <div class="menu-item fade-in">
+          <div class="menu-item-img"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&q=80&auto=format&fit=crop" alt="ノンアルコールビール" loading="lazy"></div>
+          <div class="menu-item-info">
+            <h4>ノンアルコールビール<span class="item-en en">Non-Alcohol Beer</span></h4>
+            <span class="price en">¥380</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Gallery ===== -->
+<section class="section" id="gallery">
+  <div class="section-head fade-in">
+    <p class="section-eyebrow en">Gallery</p>
+    <h2 class="section-title en">GALLERY</h2>
+    <p class="section-title-jp">フォトギャラリー</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item fade-in">
+      <img src="https://images.unsplash.com/photo-1543007631-283050bb3e8c?w=700&q=80&auto=format&fit=crop" alt="店内の落ち着いた雰囲気" loading="lazy">
+    </div>
+    <div class="gallery-item fade-in">
+      <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=700&q=80&auto=format&fit=crop" alt="揃えた酒瓶とカウンター" loading="lazy">
+    </div>
+    <div class="gallery-item fade-in">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80&auto=format&fit=crop" alt="盛り付けられた料理" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ===== Access ===== -->
+<section class="section-alt" id="access">
+  <div class="section-alt-inner">
+    <div class="section-head fade-in">
+      <p class="section-eyebrow en">Access</p>
+      <h2 class="section-title en">ACCESS</h2>
+      <p class="section-title-jp">アクセス・店舗情報</p>
+    </div>
+    <div class="access-grid">
+      <div class="access-map fade-in">
+        <iframe
+          src="https://www.google.com/maps?q=Chofu+Station,Tokyo,Japan&output=embed"
+          width="100%" height="100%" style="border:0;"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="炭火と肴 くろべえ 周辺地図（調布）"></iframe>
+      </div>
+      <div class="access-info fade-in">
+        <dl>
+          <dt class="en">Name</dt>
+          <dd>炭火と肴 くろべえ</dd>
+          <hr>
+          <dt class="en">Address</dt>
+          <dd>東京都調布市布田4-12-3<br>くろべえビル B1F（架空の住所です）</dd>
+          <hr>
+          <dt class="en">Hours</dt>
+          <dd>17:00 - 23:30（L.O. 23:00）</dd>
+          <hr>
+          <dt class="en">Closed</dt>
+          <dd>月曜日</dd>
+          <hr>
+          <dt class="en">Instagram</dt>
+          <dd><a href="https://www.instagram.com/kurobee_izakaya/" target="_blank" rel="noopener noreferrer">@kurobee_izakaya</a></dd>
+        </dl>
+        <p class="access-note">※本サイトはWeb制作ポートフォリオ用のデモサイトです。掲載されている店舗情報・住所・メニュー内容・電話番号はすべて架空のものです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Reserve ===== -->
+<section class="section" id="reserve">
+  <div class="blob" style="width:360px;height:360px;top:20%;right:-100px;"></div>
+  <div class="section-head fade-in">
+    <p class="section-eyebrow en">Reserve</p>
+    <h2 class="section-title en">RESERVE</h2>
+    <p class="section-title-jp">ご予約</p>
+  </div>
+  <div class="reserve-box fade-in">
+    <p class="reserve-text">当日のご予約・お問い合わせはお気軽にお電話ください。</p>
+    <a class="reserve-btn" href="tel:0421234567">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="reserve-btn-text">
+        <span class="en">TEL</span>
+        <span class="reserve-number en">042-123-4567</span>
+      </span>
+    </a>
+    <p class="reserve-hours">受付時間 17:00 - 23:00（月曜定休）</p>
+    <p class="reserve-note">※こちらはデモサイトのため、架空の電話番号です。</p>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <p class="footer-logo">炭火と肴 くろべえ</p>
+  <p class="footer-tagline">炭火の香り、懐かしい夜。</p>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/kurobee_izakaya/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+  </div>
+  <nav class="footer-nav">
+    <a href="#hero">HOME</a>
+    <a href="#commitment">COMMITMENT</a>
+    <a href="#menu">MENU</a>
+    <a href="#gallery">GALLERY</a>
+    <a href="#access">ACCESS</a>
+    <a href="#reserve">RESERVE</a>
+  </nav>
+  <div class="footer-bottom">
+    <p>&copy; 2026 炭火と肴 くろべえ. All Rights Reserved.</p>
+    <p>※本サイトはWeb制作ポートフォリオ用の架空デモサイトです。</p>
+  </div>
+</footer>
+
+<script>
+  // Header scroll state
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  // Mobile nav toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  const toggleNav = () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  };
+  hamburger.addEventListener('click', toggleNav);
+  hamburger.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleNav(); }
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+
+  // Menu tab switching
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const menuContents = document.querySelectorAll('.menu-content');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      menuContents.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Scroll fade-in animation
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  faders.forEach(el => appearOnScroll.observe(el));
+</script>
+</body>
+</html>
